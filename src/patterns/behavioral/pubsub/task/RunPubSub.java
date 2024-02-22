@@ -25,10 +25,18 @@ public class RunPubSub {
         );
 
         Video santaBarbara = new Video(LocalDateTime.of(
-                1990, 1, 1, 0, 0), "Santa Barbara", 1000000
+                1990, 1, 1, 0, 0), "Santa Barbara", 56
         );
 
+        channel.addVideo(bandsOfNewYork);
         Subscriber s1 = new Subscriber("Bob");
+        channel.addSubscriber(s1);
+        channel.addVideo(santaBarbara);
+
         Subscriber s2 = new Subscriber("Jack");
+        channel.addSubscriber(s2);
+
+        channel.addVideo(new Video(LocalDateTime.of(
+                2023, 6, 12, 2, 0), "Matrix", 5));
     }
 }

@@ -15,14 +15,14 @@ public class XMLConverter implements Converter {
     public String convert(List<String> keys, List<String> values) {
         Map<String, String> data = prepare(keys, values);
         StringBuilder builder = new StringBuilder("<?xml version=\"3.0\" encoding=\"UTF-8\"?>\n\t");
-        builder.append("<").append("data").append(">\n\t").append("\t").append("<");
+        builder.append("<").append("data").append(">\n\t\t").append("<");
         for (Map.Entry<String, String> entry: data.entrySet()) {
             builder.append(entry.getKey())
                     .append(">")
                     .append(entry.getValue())
                     .append("</")
                     .append(entry.getKey())
-                    .append(">\n\t").append("\t").append("<");
+                    .append(">\n\t\t").append("<");
         }
         builder.delete(builder.length() - 3, builder.length() -2);
         builder.append("/data").append(">\n\t");

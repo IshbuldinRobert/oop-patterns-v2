@@ -19,4 +19,8 @@ public class Video {
     public int getDuration() {
         return duration;
     }
+
+    public String getName() {
+        return this.name;
+    }
 }

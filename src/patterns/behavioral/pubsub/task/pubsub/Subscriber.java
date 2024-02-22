@@ -6,10 +6,10 @@ import java.util.List;
 /**
   Video channel's subscriber.
  */
-public class Subscriber {
+public class Subscriber implements Listener{
     private final String nickname;
     private boolean isLikeVideo;
-    private final List channelAdministrators;
+    private final List<?> channelAdministrators;
 
     public Subscriber(String nickname) {
         this.nickname = nickname;
@@ -27,5 +27,18 @@ public class Subscriber {
 
     public void setLikeVideo(boolean likeVideo) {
         isLikeVideo = likeVideo;
+    }
+
+    @Override
+    public void process(Video video) {
+        if (video.getDuration() > 10) {
+            isLikeVideo = false;
+            System.out.println(this.nickname + " dis " + video.getName());
+        }
+        else {
+            isLikeVideo = true;
+            System.out.println(this.nickname + " like " + video.getName());
+        }
+
     }
 }
